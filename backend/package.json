@@ -13,15 +13,16 @@
     "@google/genai": "^1.4.0",
     "@google/generative-ai": "^0.24.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.5.0",
     "express": "^4.18.2",
     "express-rate-limit": "^7.1.5",
     "helmet": "^7.1.0",
     "joi": "^17.11.0",
-    "mongoose": "^8.0.0",
+    "mongoose": "^8.15.2",
     "morgan": "^1.10.0",
     "openai": "^4.20.1",
-    "playwright": "^1.53.0"
+    "playwright": "^1.53.0",
+    "puppeteer": "^24.10.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

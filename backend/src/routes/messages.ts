@@ -4,9 +4,9 @@ import { validateMessageRequest } from "../middleware/validation";
 
 const router = express.Router();
 
-
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-pro" }); // or "gemini-1.5-flash"
+const GEMINI_API_KEYS = process.env.GEMINI_API_KEY||"";
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEYS);
+const model = genAI.getGenerativeModel({ model: "gemini-pro" }); 
 
 interface ProfileData {
   name: string;
