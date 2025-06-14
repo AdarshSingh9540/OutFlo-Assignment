@@ -4,7 +4,7 @@ import { validateMessageRequest } from "../middleware/validation";
 
 const router = express.Router();
 
-const GEMINI_API_KEY = "AIzaSyAAiC5eGpM3CZFSnr_XvbJn2TSDdgd-194"; // Replace with your actual key
+
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" }); // or "gemini-1.5-flash"
 
