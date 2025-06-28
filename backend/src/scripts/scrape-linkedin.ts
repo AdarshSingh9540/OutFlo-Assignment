@@ -84,9 +84,9 @@ function extractCompanyFromJobTitle(jobTitle: string): { cleanJobTitle: string; 
   // Clean up company name
   if (company !== "Not specified") {
     company = company
-      .replace(/\s*\|\s*.*$/, "") // Remove everything after |
-      .replace(/\s*,\s*.*$/, "") // Remove everything after ,
-      .replace(/\s+/g, " ") // Normalize spaces
+      .replace(/\s*\|\s*.*$/, "") 
+      .replace(/\s*,\s*.*$/, "") 
+      .replace(/\s+/g, " ")
       .trim()
   }
 
