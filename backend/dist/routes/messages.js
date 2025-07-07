@@ -7,9 +7,9 @@ const express_1 = __importDefault(require("express"));
 const generative_ai_1 = require("@google/generative-ai");
 const validation_1 = require("../middleware/validation");
 const router = express_1.default.Router();
-const GEMINI_API_KEY = "AIzaSyAAiC5eGpM3CZFSnr_XvbJn2TSDdgd-194"; // Replace with your actual key
-const genAI = new generative_ai_1.GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-pro" }); // or "gemini-1.5-flash"
+const GEMINI_API_KEYS = process.env.GEMINI_API_KEY || "";
+const genAI = new generative_ai_1.GoogleGenerativeAI(GEMINI_API_KEYS);
+const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 // POST /api/personalized-message - Generate personalized message
 router.post("/", validation_1.validateMessageRequest, async (req, res) => {
     try {

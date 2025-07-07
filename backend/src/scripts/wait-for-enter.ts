@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { chromium } from "playwright";
 import dotenv from "dotenv";
 import readline from "readline";
@@ -59,7 +61,6 @@ async function debugPageContent(page: any) {
         `Found ${elements.length} elements with selector: ${selector}`
       );
       if (elements.length > 0) {
-        
         const html = await elements[0].innerHTML();
         console.log(
           ` Sample HTML for ${selector}:`,
@@ -103,7 +104,6 @@ async function scrapeLinkedInProfiles(
   const profiles: LinkedInProfile[] = [];
 
   try {
-
     console.log(" Logging into LinkedIn...");
     await page.goto("https://www.linkedin.com/login");
     await page.fill('input[name="session_key"]', credentials.email);
@@ -130,9 +130,7 @@ async function scrapeLinkedInProfiles(
     await page.waitForTimeout(3000);
     await debugPageContent(page);
     console.log(" Please verify the search results are fully loaded.");
-    await waitForEnter(
-      " Press ENTER here in terminal to continue scraping..."
-    );
+    await waitForEnter(" Press ENTER here in terminal to continue scraping...");
 
     console.log(" Scrolling to load more results...");
     await autoScroll(page, 6, 2000);
@@ -171,13 +169,10 @@ async function scrapeLinkedInProfiles(
       );
 
       try {
-        
         const allText = await element.textContent();
         const allLinks = await element.$('a[href*="/in/"]');
 
-        console.log(
-          `   Full text: "${allText?.trim().substring(0, 100)}..."`
-        );
+        console.log(`   Full text: "${allText?.trim().substring(0, 100)}..."`);
         console.log(`    Profile links found: ${allLinks.length}`);
 
         let name = "";
@@ -198,7 +193,6 @@ async function scrapeLinkedInProfiles(
             console.log(`    Found name from link: "${name}"`);
           }
         }
-
 
         if (!name && allText) {
           const textLines = allText

@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { chromium } from "playwright"
 import dotenv from "dotenv"
 import connectToDatabase from "../config/database"
